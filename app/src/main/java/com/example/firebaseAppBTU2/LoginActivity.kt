@@ -37,7 +37,8 @@ class LoginActivity : AppCompatActivity() {
 
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                 if (it.isSuccessful){
-                    TODO()
+                    val Intent=Intent(this,ProfileActivity::class.java)
+                    startActivity(Intent)
                 } else {
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }

@@ -21,10 +21,22 @@ class SignUpActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
-        init()
-        listeners()
+        check()
+
     }
+
+    private fun check(){
+        if(Firebase.auth.currentUser!=null){
+            val Intent=Intent(this,ProfileActivity::class.java)
+            startActivity(Intent)
+        }else{
+            setContentView(R.layout.activity_sign_up)
+            init()
+            listeners()
+        }
+    }
+
+
 
     private fun listeners() {
 
